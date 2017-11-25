@@ -1,9 +1,25 @@
 import pygame
+class SpriteSheet:
+    def __init__(self, filename):
+            self.sheet = pygame.image.load(filename).convert()
+    def image_at(self, rectangle):
+        self.rect = pygame.Rect(rectangle)
+        self.image = pygame.Surface(self.rect.size).convert()
+        image.blit(self.sheet, (0, 0), self.rect)
+        return image
+    def load_strip(self, self.image, location, image_count):
+        "Loads a strip of images and returns them as a list"
+        strip = []
+        for i in range(image_count):
+            strip += self.image.image_at(location)
+            location[0] += 16.5
+        return strip
 class Maze(pygame.sprite.Sprite):
     def __init__(self, height, width, x, y):
         pygame.sprite.Sprite.__init__(self)
         self.height = height
         self.width = width
+        self.backgroundColor = 'black'
         self.wall = pygame.Surface([width, height])
         self.wall.fill = "blue"
         self.rect = self.wall.get_rect()
@@ -28,7 +44,14 @@ class Pacman:
         self.y += self.speed
     def moveDown(self):
         self.y -= self.speed
-    def
+    def die(self):
+        if self.health > 0:
+            self.health -= 1
+        else:
+            self.backgroundColor.fill(250, 0, 0)
+            
+
+        
 class Ghost:
     def __init__(self, start:tuple):
         self.x = start[0]

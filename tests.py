@@ -1,22 +1,20 @@
 import pygame
-class SpriteSheet:
-    def __init__(self, filename):
-            self.sheet = pygame.image.load(filename).convert()
-    def image_at(self, rectangle):
-        self.rect = pygame.Rect(rectangle)
-        self.image = pygame.Surface(self.rect.size).convert()
-        image.blit(self.sheet, (0, 0), self.rect)
-        return image
-    def load_strip(self, self.image, location, image_count):
-        "Loads a strip of images and returns them as a list"
-        strip = []
-        for i in range(image_count):
-            strip += self.image.image_at(location)
-            location[0] += 16.5
-        return strip
-class Maze(pygame.sprite.Sprite):
-    def __init__(self, height, width, x, y):
-        pygame.sprite.Sprite.__init__(self)
+from pygame.locals import *
+import spritesheet
+class Maze():
+    def __init__(self, mazeFile):
+        pygame.init()
+        clock = pygame.time.Clock()
+        ss = spritesheet.spritesheet('tileSheet.png')
+        screen = pygame.display.set_mode((600,400), 0, 32)
+        maze = open(mazeFile, "r")
+        images = []
+        for row in maze:
+            for col in line:
+                value = maze[row][col]
+                if value == "-"
+                    images += ss.image_at((0, 0, 16, 16))
+            
         self.height = height
         self.width = width
         self.backgroundColor = 'black'
@@ -52,10 +50,19 @@ class Pacman:
             
 
         
-class Ghost:
+class Ghosts:
     def __init__(self, start:tuple):
         self.x = start[0]
         self.y = start[1]
+        ss = spritesheet.spritesheet('PacMan Sprite Sheet.png')
+        screen = pygame.display.set_mode((600,400), 0, 32)
+        maze = open(mazeFile, "r")
+        images = []
+    def chase(self):
+        
+    def frightened(self):
+    def scatter(self):
+        
 class Food:
     def __init__(self, locate:tuple, foodImage):
         self.x = locate[0]

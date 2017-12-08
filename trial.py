@@ -220,12 +220,20 @@ class Controller():
                     done=True
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_DOWN:
+                        img = pygame.image.load("pacmandown.png")
+                        Pacman.image = img
                         Pacman.changespeed(0,30)
                     if event.key == pygame.K_RIGHT:
+                        img = pygame.image.load("pacmanright.png")
+                        Pacman.image = img
                         Pacman.changespeed(30,0)
                     if event.key == pygame.K_LEFT:
+                        img = pygame.image.load("pacmanleft.png")
+                        Pacman.image = img
                         Pacman.changespeed(-30,0)
                     if event.key == pygame.K_UP:
+                        img = pygame.image.load("pacmanup.png")
+                        Pacman.image = img
                         Pacman.changespeed(0,-30)
 
                 if event.type == pygame.KEYUP:
